@@ -1,0 +1,106 @@
+          <div class="row" ng-show="showUploadInfo">
+		  <br/>
+		  <br/>
+          <div class="form-group form-group-mg">
+            <div class="input-prepend col-sm-10">
+              <!--
+              <input type="file" class="filestyle" ng-model="file" data-buttonName="btn-primary" data-icon="false" data-placeholder="Please upload your agency key" data-buttonText="Browser...">
+              
+              <input type="file" ngf-select ng-model="picFile" name="file" required>
+			  -->
+			  <input type="file" ngf-select ng-model="picFile" class="filestyle" ngf-max-size="5MB" data-buttonName="btn-primary" data-icon="false" data-placeholder="Please upload your agency key" data-buttonText="Browse...">
+            </div>
+          </div>
+		  <br/>
+		  <br/>
+		  <br/>
+		  <br/>
+          <label class="col-sm-2 control-label"></label>
+          <div class="col-sm-10"  align="right" >
+      		    <button type="submit" class="btn btn-primary pull-right btn-lg outline" ng-click="viewLicense(picFile)">Continue...</button>
+          </div>
+        </div>
+				<div class="panel-heading" ng-show="showReviewInfo">
+					<div class="container no_padding no_margin" >
+						<font size="4px;">Welcome, agency {{productlicense.agency}}. Below are your
+							solutions. If everything looks correct, please continue. If not
+							please contact the customer care center.</font>
+					</div>
+					<br />
+					<br />
+
+					<table class="table table-bordered" ng-repeat="solution in solutions">
+						<tr height=20>
+							<td class="portlet-form-field-label info" nowrap width=150
+								ng-switch on="solution.addon"><span ng-switch
+								on=solution.addon> <span><span ng-switch-when=true>Add-on Name</span>
+										<span ng-switch-when=false>Solution Name</span></span>
+							</span></td>
+							<td class="portlet-msg-info" ng-repeat="la in licenseMsgs.label | filter:solution.name">
+								<span>{{la.value}}</span>
+							</td>
+						</tr>
+						<tr height=20 ng-switch on="solution.active">
+							<td class="portlet-form-field-label info" nowrap width=250>
+							<span>Named Users(Total Available Licenses)</span></td>
+							<td class="portlet-msg-info">
+								<span ng-if="solution.namedusers==0">Unlimited</span>
+								<span ng-if="solution.namedusers!=0">{{solution.namedusers}}</span></td>
+						</tr>
+
+						<tr height=20>
+							<td class="portlet-form-field-label info" nowrap width=150>
+								<span>Licenses in Use</span>
+							</td>
+							<td class="portlet-msg-info">0</td>
+						</tr>
+						<tr height=20 ng-switch on="solution.active">
+							<td class="portlet-form-field-label info" nowrap width=150>
+							<span>Licenses Available</span></td>
+							<td class="portlet-msg-info">
+							<span ng-if="solution.namedusers==0">Unlimited</span>
+							<span ng-if="solution.namedusers!=0">
+								<!--span ng-repeat="(key, value) in usedLicense">
+								
+									<span ng-if="key==solution.name"-->{{solution.namedusers-value}}<!--/span-->
+								<!--</span>-->
+							</span>
+							</td>
+						</tr>
+						<tr height=20 ng-switch on="solution.active">
+							<td class="portlet-form-field-label info" nowrap><span>Expiration
+									Date</span></td>
+							<td class="portlet-msg-info">
+								<span ng-if="solution.expirationdate==null">Unlimited</span>
+								<span ng-if="solution.expirationdate!=null"><span ng-bind="solution.expirationdate | date:'MM/dd/yyyy'"></span></span>
+							</td>
+						</tr>
+						<tr height=20>
+							<td class="portlet-form-field-label info" nowrap><span>Status</span>
+							</td>
+							<td class="portlet-msg-info"><span ng-if="solution.active==true">Enabled</span>
+								<span ng-if="solution.active==false">Disabled</span></td>
+						</tr>
+						<tr height=20>
+							<td class="portlet-form-field-label danger" colspan="2"></td>
+						</tr>
+						<tr height=20>
+					</table>
+
+					<table class="table table-bordered">
+						<tr height=20>
+							<td class="portlet-form-field-label info" nowrap width=275><span>Comment</span>
+							</td>
+							<td class="portlet-msg-info"><span>{{productlicense.comments}}</span></td>
+						</tr>
+					</table>
+					<table class="table ">
+						<tr height=20>
+							<button type="submit"
+								class="btn btn-primary pull-right btn-lg outline"
+								ng-click="selectModule()">Continue...</button></td>
+						</tr>
+					</table>
+				</div>
+		<script type="text/javascript" src="js/jquery.js"> </script>
+		<script type="text/javascript" src="js/bootstrap-filestyle.js"> </script>

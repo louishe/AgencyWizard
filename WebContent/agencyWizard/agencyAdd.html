@@ -1,0 +1,141 @@
+
+
+
+					<!--<form name="newAgencyForm">-->
+						<table class="table">
+							<tr  class="form-group form-group-sm" height=20px>
+								<td class="col-sm-4 add_agency_item_text_align" style=";border:none; ">
+								<label class="control-label" for="agencyName" 
+										style="text-align: right;">Agency code</label>
+								</td>
+								<td class="col-sm-7" style="border:none;"><input class="form-control" type="text" ng-model="nServProvCode" readonly="readonly">
+								</td>
+							</tr>
+							
+							<tr  class="form-group form-group-sm" height=20px>
+								<td class="col-sm-4 add_agency_item_text_align" style="border:none; ">
+							<label class="control-label" for="jurisdiction" 
+										style="text-align: right;">Jurisdiction</label>
+								</td>
+								<td class="col-sm-7" style="border:none;"><input class="form-control" type="text" id="jurisdiction"
+											ng-model="jurisdiction"
+											placeholder="jurisdiction">
+								</td>
+							</tr>
+							
+							<tr  class="form-group form-group-sm" height=20px>
+								<td class="col-sm-4 add_agency_item_text_align" style="border:none; ">
+									<label class="control-label" for="multipleLanguage" 
+										style="text-align: right;">Will you support multiple language?</label>
+								</td>
+								<td class="col-sm-7" style="border:none;">
+									<label class="radio-inline"> <input type="radio"
+										name="multipleLanguage" id="multipleLanguage"
+										ng-model="multipleLanguage" value="Y"> Yes
+									</label> <label class="radio-inline"> <input type="radio"
+										name="multipleLanguage" id="multipleLanguage"
+										ng-model="multipleLanguage" value="N"> No
+									</label>
+									<label ng-if="langFlag==N">
+										<script text="javascript">
+											document.getElementsByName('multipleLanguage')[1].checked=true;
+										</script>
+									</label>
+								</td>
+							</tr>
+							
+							<tr  class="form-group form-group-sm" height=20px>
+								<td class="col-sm-4 add_agency_item_text_align" style="border:none; ">
+								<label class="control-label" for="agencyName" 
+										style="text-align: right;">Agency</label>
+								</td>
+								<td class="col-sm-7" style="border:none;">
+									<input class="form-control" type="text" id="agencyName"
+										ng-model="agencyName" placeholder="Agency">
+								</td>
+							</tr>
+							
+							<tr  class="form-group form-group-sm" height=20px>
+								<td class="col-sm-4 add_agency_item_text_align" style="border:none; ">
+									<label class="control-label" for="timeZone" 
+										style="text-align: right;">Time Zone</label>
+								</td>
+								<td class="col-sm-7" style="border:none;">
+									<select ng-model="timeZone" id="timeZone" class="form-control">
+										<option value="">---Please Select---</option>
+										<option ng-repeat="time in agencyTimeZone" value="{{time.id}}">{{time.displayName}}</option>
+									</select>
+								</td>
+							</tr>
+							
+							<tr  class="form-group form-group-sm" height=20px>
+								<td class="col-sm-4 add_agency_item_text_align" style="border:none; ">
+								<label class="control-label" for="cildAgency" 
+										style="text-align: right;">Is this a child agency?</label>
+								<span us-spinner="{radius:30, width:8, length: 16}" spinner-key="spinner-1"></span>
+								</td>
+								<td class="col-sm-7" style="border:none;">
+									<label class="radio-inline"> <input type="radio"
+										id="cildAgency" value="Y" ng-model="cildAgency"> Yes
+									</label> <label class="radio-inline"> <input type="radio"
+										id="cildAgency" value="N" ng-model="cildAgency"> No
+								</td>
+							</tr>
+							
+							
+							<tr  class="form-group form-group-sm" height=20px>
+								<td class="col-sm-4 add_agency_item_text_align" style="border:none; ">
+									<label class="control-label" for="address1" 
+										style="text-align: right;">Please fill your address</label>
+								</td>
+								<td class="col-sm-7" style="border:none;">
+									<input class="form-control" type="text" id="address1"
+										ng-model="address1" placeholder="Address Line 1">
+								</td>
+							</tr>
+							
+							<tr  class="form-group form-group-sm" height=20px>
+								<td class="col-sm-4 add_agency_item_text_align" style="border:none; ">
+								<label class="control-label" for="mainContact" 
+										style="text-align: right;"></label>
+								</td>
+								<td class="col-sm-7" style="border:none;">
+									<input class="form-control" type="text" id="mainContact"
+										ng-model="mainContact" placeholder="Main Contact">
+								</td>
+							</tr>
+							
+							<tr  class="form-group form-group-sm" height=20px>
+								<td class="col-sm-4 add_agency_item_text_align" style="border:none; ">
+						<label class="control-label" for="state" 
+										style="text-align: right;"></label>
+								</td>
+								<td class="col-sm-7" style="border:none;">
+									<div class="col-xs-4" style="padding:0;maring:0;">
+										<input type="text" class="form-control" placeholder="City"
+											id="city" ng-model="city">
+									</div>
+									<div class="col-xs-4" style="padding:0;maring:0;">
+										<input type="text" class="form-control" placeholder="State"
+											id="state" ng-model="state">
+									</div>
+									<div class="col-xs-4" style="padding:0;maring:0;">
+										<input type="text" class="form-control" placeholder="Zip"
+											id="zip" ng-model="zip">
+									</div>
+								</td>
+							</tr>
+							
+							<tr  class="form-group form-group-sm" height=20px>
+								<td class="col-sm-4" style="border:none;">
+								</td>
+								<td class="col-sm-7" style="border:none;">
+									<button type="submit" ng-disabled="isDisabled"
+										class="btn btn-primary pull-right btn-lg outline"
+										ng-click="saveAgency()">Continue...
+									</button>
+								</td>
+							</tr>
+					
+						</table>
+					<!--</form>-->

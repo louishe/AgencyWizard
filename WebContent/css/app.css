@@ -1,0 +1,73 @@
+html{
+	 height:100%;	
+}
+
+body {
+  	font-family:"Times New Roman";
+    letter-spacing: 1px;
+    background: #EDEDED;
+    font-size:14px;
+    height:100%;
+}
+
+.main_panel{
+	margin:0 auto;
+	width:1180px;
+	background:#2F4F4F;
+	min-height:100%;
+	height:auto;
+}
+
+.nav_bar{
+	background:#314d68;
+	padding:0;
+	margin:0;
+}
+
+
+.logo{
+	text-align:center;
+	vertical-align:middle;
+	font-size:34px;
+	color:white;
+   
+}
+
+.login_panel{
+	margin-top:150px;
+}
+.continue_button{
+	margin-top:25px;
+}
+
+.alert_message{
+	color:red;
+	font-size:12px;
+	height:80px;
+	width:350px;
+	text-align:center;
+	line-height:80px;
+	border:1px solid #ededed;
+	
+	
+}
+
+.btn_color{
+	background: #228B22;
+}
+.upload_license_btn{
+	margin-top:20px;
+}
+
+.add_agency_item_text_align{
+	text-align: right;
+	vertical-align: middle;
+}
+
+.no_margin{
+	margin:0;
+}
+
+.no_padding{
+	padding:0;
+}

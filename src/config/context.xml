@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+			http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.2.xsd
+			http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
+
+	<!--
+		SPRING SETUP 
+	 -->
+
+	<!-- Load properties so we can easily change them -->
+	<!-- <context:property-placeholder location="classpath:application.properties" /> -->
+	
+	<!-- Enable Annotation Configuration in order to automatically scan controllers-->
+	<context:annotation-config />
+	
+	<!-- Allow @Transactional annotations for transaction management -->
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	
+	<!-- Search for Rest Resources and configure them automatically -->
+	<context:component-scan base-package="com.accela.agencyTools.rest.agencyWizard.service" />
+	
+	
+
+</beans>

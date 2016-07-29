@@ -1,0 +1,24 @@
+   <div class="container" >
+
+   <table border="0" style="width:96%;margin-bottom:20px;background-color:#ededed;"  ng-repeat="(solution,moduleNames) in moduleNameSolutionMap"> 
+    <tbody> 
+     <tr height="30px"> 
+      <td class="col-sm-3 no_padding no_margin align_right" style="text-align:right;"> <label  style="font-weight:bold;" ng-repeat="la in licenseMsgs.label | filter:solution">{{la.value}}</label> </td> 
+      <td class="col-sm-9"> </td> 
+     </tr> 
+     <tr height="30px" style="width:50px;" ng-repeat="module in moduleNames"> 
+      <td class="col-sm-3 no_padding no_margin" style="text-align:right;">{{module}} </td> 
+      <td class="col-sm-9"> <input type="checkbox" name="{{module}}"/></td> 
+     </tr> 
+    </tbody> 
+   </table> 
+    </div>
+   <table border="0"> 
+    <tbody>
+     <tr height="30px"> 
+      <td class="col-sm-11 no_padding no_margin align_right"> <label></label> </td> 
+      <td class="col-sm-1"> <button type="submit" ng-click="addAgency()" class="btn btn-primary pull-right btn-lg outline"> Continue... </button> </td> 
+     </tr> 
+    </tbody>
+   </table> 
+  </div>

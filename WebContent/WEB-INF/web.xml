@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.4"
+	xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<display-name>AgencyWizard</display-name>
+
+	<!-- Load Spring Context -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			classpath:/config/context.xml
+		</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>resteasy.scan</param-name>
+		<param-value>false</param-value>
+	</context-param>
+	<context-param>
+		<param-name>resteasy.scan.providers</param-name>
+		<param-value>false</param-value>
+	</context-param>
+	<context-param>
+		<param-name>resteasy.scan.resources</param-name>
+		<param-value>false</param-value>
+	</context-param>
+
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+	<listener>
+		<listener-class>com.accela.agencyTools.rest.agencyWizard.task.FileFetchListenter</listener-class>
+	</listener>
+
+	<!-- Map the REST Servlet to /rest/ -->
+	<servlet>
+		<servlet-name>RestService</servlet-name>
+		<servlet-class>com.sun.jersey.spi.spring.container.servlet.SpringServlet</servlet-class>
+		<init-param>
+			<param-name>com.sun.jersey.config.property.packages</param-name>
+			<param-value>com.accela.agencyTools.rest.agencyWizard.service</param-value>
+		</init-param>
+		<init-param>
+			<param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RestService</servlet-name>
+		<url-pattern>/rest/*</url-pattern>
+	</servlet-mapping>
+
+
+	<filter>
+		<description> </description>
+		<display-name>SecurityFilter</display-name>
+		<filter-name>SecurityFilter</filter-name>
+		<filter-class>com.accela.agencyTools.security.SecurityFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>SecurityFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+	<session-config>
+		<session-timeout>60</session-timeout>
+	</session-config>
+
+</web-app>
